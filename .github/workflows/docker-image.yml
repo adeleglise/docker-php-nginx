@@ -32,7 +32,7 @@ jobs:
           tags: latest ${{ env.IMAGE_TAGS }}
           base-image: busybox:latest
           containerfiles: |
-            ./docker/prd.Dockerfile
+            .Dockerfile
       # Push the image to GHCR (Image Registry)
       - name: Push To GHCR
         uses: redhat-actions/push-to-registry@v2
