@@ -1,30 +1,12 @@
-ARG ALPINE_VERSION=3.15
-FROM alpine:${ALPINE_VERSION}
-LABEL Maintainer="Tim de Pater <code@trafex.nl>"
-LABEL Description="Lightweight container with Nginx 1.20 & PHP 8.0 based on Alpine Linux."
+ARG ALPINE_VERSION=3.15.4
+FROM php:fpm-alpine
 # Setup document root
-WORKDIR /var/www/html
+WORKDIR /var/www/html/public
 
 # Install packages and remove default server definition
 RUN apk add --no-cache \
   curl \
   nginx \
-  php8 \
-  php8-ctype \
-  php8-curl \
-  php8-dom \
-  php8-fpm \
-  php8-gd \
-  php8-intl \
-  php8-mbstring \
-  php8-mysqli \
-  php8-opcache \
-  php8-openssl \
-  php8-phar \
-  php8-session \
-  php8-xml \
-  php8-xmlreader \
-  php8-zlib \
   supervisor
 
 # Create symlink so programs depending on `php` still function
