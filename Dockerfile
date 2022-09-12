@@ -28,10 +28,10 @@ COPY config/supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 RUN chown -R nobody.nobody /var/www/html /run /var/lib/nginx /var/log/nginx
 
 # Switch to use a non-root user from here on
-USER nobody
+USER www-data
 
 # Add application
-COPY --chown=nobody src/ /var/www/html/
+COPY --chown=www-data src/ /var/www/html/
 
 # Expose the port nginx is reachable on
 EXPOSE 8080
