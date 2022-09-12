@@ -18,6 +18,7 @@ COPY config/nginx.conf /etc/nginx/nginx.conf
 # Configure PHP-FPM
 COPY config/fpm-pool.conf /etc/php8/php-fpm.d/www.conf
 COPY config/php.ini /etc/php8/conf.d/custom.ini
+COPY config/fpm-pool.conf /usr/local/etc/php-fpm.d/www.conf
 
 # Configure supervisord
 COPY config/supervisord.conf /etc/supervisord.conf
